@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "374405311576",
+    "project_id": "corncall-d9b82",
+    "storage_bucket": "corncall-d9b82.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:374405311576:android:6bc36d547ee83ba0abee2d",
+        "android_client_info": {
+          "package_name": "com.example.corncall"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "374405311576-f79bu3npt3fvllkpil943akageiut0e3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6h6dvaOCTY7Smz7MPMfELGpv53EIoebI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "374405311576-f79bu3npt3fvllkpil943akageiut0e3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
