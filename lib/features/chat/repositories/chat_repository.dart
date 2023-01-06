@@ -267,7 +267,7 @@ class ChatRepository {
 
   void sendFileMessage({
     required BuildContext context,
-    required File file,
+    required String file,
     required String recieverUserId,
     required UserModel senderUserData,
     required ProviderRef ref,
@@ -279,12 +279,13 @@ class ChatRepository {
       var timeSent = DateTime.now();
       var messageId = const Uuid().v1();
 
-      String imageUrl = await ref
-          .read(commonFirebaseStorageRepositoryProvider)
-          .storeFileToFirebase(
-            'chat/${messageEnum.type}/${senderUserData.uid}/$recieverUserId/$messageId',
-            file,
-          );
+      String imageUrl = file;
+    //await ref
+    //       .read(commonFirebaseStorageRepositoryProvider)
+    //       .storeFileToFirebase(
+    //         'chat/${messageEnum.type}/${senderUserData.uid}/$recieverUserId/$messageId',
+    //         file,
+    //       );
 
       UserModel? recieverUserData;
       if (!isGroupChat) {

@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:corncall/features/auth/apis/api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:corncall/common/enums/message_enum.dart';
@@ -71,12 +72,14 @@ class ChatController {
     String recieverUserId,
     MessageEnum messageEnum,
     bool isGroupChat,
-  ) {
+  ) async {
+    var fileUrl = await AuthApi.uploadFile(file, "chatFiles");
+
     final messageReply = ref.read(messageReplyProvider);
     ref.read(userDataAuthProvider).whenData(
           (value) => chatRepository.sendFileMessage(
             context: context,
-            file: file,
+            file: fileUrl,
             recieverUserId: recieverUserId,
             senderUserData: value!,
             messageEnum: messageEnum,

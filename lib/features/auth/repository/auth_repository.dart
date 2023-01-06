@@ -181,14 +181,14 @@ class AuthRepository {
 
   void saveUserDataToFirebase({
     required String name,
-    required File? profilePic,
+    required String profilePic,
     required ProviderRef ref,
     required BuildContext context,
   }) async {
     try {
       String uid = auth.currentUser!.uid;
-      String photoUrl =
-          'https://png.pngitem.com/pimgs/s/649-6490124_katie-notopoulos-katienotopoulos-i-write-about-tech-round.png';
+      String photoUrl = profilePic;
+          //'https://png.pngitem.com/pimgs/s/649-6490124_katie-notopoulos-katienotopoulos-i-write-about-tech-round.png';
 
       // if (profilePic != null) {
       //   photoUrl = await ref

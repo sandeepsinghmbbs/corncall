@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:corncall/features/auth/apis/api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -42,9 +43,11 @@ class AuthController {
 
   void saveUserDataToFirebase(
       BuildContext context, String name, File? profilePic) {
+    var url = AuthApi.uploadFile(profilePic!,'profile');
+
     authRepository.saveUserDataToFirebase(
       name: name,
-      profilePic: profilePic,
+      profilePic: url,
       ref: ref,
       context: context,
     );

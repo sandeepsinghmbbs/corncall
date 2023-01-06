@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:corncall/features/auth/apis/api.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -34,13 +35,16 @@ class StatusRepository {
     required String username,
     required String profilePic,
     required String phoneNumber,
-    required File statusImage,
+    required String statusImage,
     required BuildContext context,
   }) async {
     try {
       var statusId = const Uuid().v1();
       String uid = auth.currentUser!.uid;
-      String imageurl = 'https://png.pngitem.com/pimgs/s/649-6490124_katie-notopoulos-katienotopoulos-i-write-about-tech-round.png';
+      String imageurl = statusImage;//'https://png.pngitem.com/pimgs/s/649-6490124_katie-notopoulos-katienotopoulos-i-write-about-tech-round.png';
+      //await AuthApi.uploadFile(statusImage,'status');
+     print(imageurl);
+     print("ddddddddddddddddddddddddddd");
       // await ref
       //     .read(commonFirebaseStorageRepositoryProvider)
       //     .storeFileToFirebase(

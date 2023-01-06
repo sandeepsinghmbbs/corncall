@@ -1,4 +1,5 @@
 import  'dart:convert';
+import 'dart:io';
 import 'package:corncall/models/user_model.dart';
 import 'package:firebase_auth_platform_interface/src/providers/phone_auth.dart';
 import 'package:http/http.dart' as http;
@@ -118,5 +119,31 @@ class AuthApi {
     }
   }
 
+
+  static uploadFile(File file, String path) async {
+    print('heyyyyyyyyyyyyyyyyyyyyyyyy');
+    var request = await http.MultipartRequest('POST', Uri.parse('https://corncall.com:2087/upload/'));
+    request.fields['custompath'] = path.toString();
+    // request.fields.addAll({
+    //   'custompath': path.toString()
+    // });
+    request.files.add(await http.MultipartFile.fromPath('file', file.path));
+
+    http.StreamedResponse response = await request.send();
+
+    if (response.statusCode == 200) {
+      var data = await response.stream.bytesToString();
+      print(data);
+      var data1 = jsonDecode(data);
+      var url = data1['url'];
+      return url;
+
+
+    }
+    else {
+      throw Exception(response.reasonPhrase);
+      print(response.reasonPhrase);
+    }
+  }
 
 }
